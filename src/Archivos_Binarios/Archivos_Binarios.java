@@ -35,8 +35,16 @@ public class Archivos_Binarios {
             objectOutputStream=new ObjectOutputStream(fileOutputStream);
             
             Persona per=new Persona(6311,"carlos", 28);
-            System.out.println("per: "+per);
             objectOutputStream.writeObject(per);
+            
+            Persona per2=new Persona(6311,"maurio", 28);
+            objectOutputStream.writeObject(per2);
+            
+            Persona per3=new Persona(6311,"luis", 28);
+            objectOutputStream.writeObject(per3);
+            
+            Persona per4=new Persona(6311,"erika", 28);
+            objectOutputStream.writeObject(per4);
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Archivos_Binarios.class.getName()).log(Level.SEVERE, null, ex);
@@ -57,18 +65,18 @@ public class Archivos_Binarios {
             
             objectInputStream=new ObjectInputStream(fileInputStream);
             
-//            BufferedInputStream bufferedInputStream=new BufferedInputStream(fileInputStream);
-            
-            Object dato=objectInputStream.readObject();
-            
-            Persona per=(Persona) dato;
-            
-            System.out.println(per);
-            
+            while (true) {
+                Object dato = objectInputStream.readObject();
+
+                Persona per = (Persona) dato;
+                System.out.println("*******************");
+                System.out.println(per);
+            }
+
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Archivos_Binarios.class.getName()).log(Level.SEVERE, null, ex);
+          //  Logger.getLogger(Archivos_Binarios.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(Archivos_Binarios.class.getName()).log(Level.SEVERE, null, ex);
+         //   Logger.getLogger(Archivos_Binarios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
