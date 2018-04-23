@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  *
  * @author cespe
  */
-public class Persona implements Serializable{
+public class Persona{
     private int ci;
     private String nombre;
     private int edad;
