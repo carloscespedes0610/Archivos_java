@@ -87,10 +87,18 @@ public class Archivos_Binarios {
             
             byte[] array = new byte[1000];
             
-            int limite = 4+50+4;  // del ci + 25 de nombre(2byte *25) + edad
+            // por el momento solo lee 1000bytes si se desea que lea mas
+            // se debe habilitar y revisar el while
+            int leidos = bufferedInputStream.read(array); 
             
-            int limite_peq=4+6+4;
-            int leidos = bufferedInputStream.read(array); //nombre = 3 *2 =6
+             /*
+            while(leidos>0){
+                
+                p.cargar_varios(array);
+                
+                leidos=bufferedInputStream.read(array,leidos+1,leidos*2);
+                
+            }*/
             
             Persona p =new Persona();
             
@@ -102,17 +110,7 @@ public class Archivos_Binarios {
                 System.out.println("*****************");
             }
             
-            /*
-            while(leidos>0){
-                
-                p.cargar(array);
-                
-                System.out.println(p.toString());
-                System.out.println("********************");
-                
-                leidos=bufferedInputStream.read(array,leidos+1,leidos*2);
-                
-            }*/
+           
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Archivos_Binarios.class.getName()).log(Level.SEVERE, null, ex);
