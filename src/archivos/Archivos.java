@@ -19,8 +19,8 @@ public class Archivos {
     public static void main(String[] args) {
         // TODO code application logic here
         Archivos_Binarios ab=new Archivos_Binarios();
-       ab.escribir();
-        ab.leer();
+       ab.escribir_con_buffer();
+       ab.leer_con_buffer();
     }
     
 }
